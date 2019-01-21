@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FrankieScript : MonoBehaviour {
 
@@ -11,10 +12,12 @@ public class FrankieScript : MonoBehaviour {
     //public float force = 10f;//Alternativa no encapsulada
     private Rigidbody rb;
     private AudioSource audioSource;
+    private GameObject gestorJuego;
 
     void Start () {
         rb = GetComponent<Rigidbody>();
         audioSource = GetComponent<AudioSource>();
+        gestorJuego = GameObject.Find("GestorJuego");
 	}
 	
 	void Update () {
@@ -29,9 +32,11 @@ public class FrankieScript : MonoBehaviour {
     }
 
     private void OnCollisionEnter(Collision collision) {
-        GestorJuego.SetJugando(false);
-        GameObject sangre = Instantiate(sangrePrefab);
-        sangre.transform.position = this.transform.position;
-        Destroy(this.gameObject);
+        if (collision.gameObject.CompareTag("Limite") == false) {
+            gestorJuego.GetComponent<GestorJuego>().FinalizarPartida();
+            GameObject sangre = Instantiate(sangrePrefab);
+            sangre.transform.position = this.transform.position;
+            Destroy(this.gameObject);
+        }
     }
 }

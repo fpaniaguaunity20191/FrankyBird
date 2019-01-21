@@ -1,17 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GestorJuego : MonoBehaviour {
-    private static int puntos = 0;
-    private static bool jugando = true;
 
-    public static bool GetJugando() {
+    private int puntos = 0;
+    private bool jugando;
+
+    private void Start() {
+        jugando = true;
+    }
+
+    public bool GetJugando() {
         return jugando;
     }
 
-    public static void SetJugando(bool value) {
-        jugando = value;
+    public void FinalizarPartida() {
+        jugando = false;
+        Invoke("RecargarEscena", 2f);
+    }
+
+    private void RecargarEscena() {
+        SceneManager.LoadScene(0);
     }
 
 
