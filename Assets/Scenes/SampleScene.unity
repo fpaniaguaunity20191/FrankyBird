@@ -568,7 +568,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 495812799}
-  m_LocalRotation: {x: -0, y: -0.00986887, z: -0, w: 0.9999513}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -583,7 +583,7 @@ Transform:
   - {fileID: 1996386107}
   m_Father: {fileID: 0}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: -1.131, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &495812801
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -630,6 +630,7 @@ MonoBehaviour:
   force: 200
   aleteo: {fileID: 8300000, guid: 4cfaff9ce31a35342a8d564851b0e434, type: 3}
   puntuacion: {fileID: 8300000, guid: 44b06622dff660b4697b5b14ea65a6e9, type: 3}
+  velocidadRotacion: -5
 --- !u!82 &495812804
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1234,6 +1235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f07ccc626aee9d4a9b984854ff59673, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textoPuntuacion: {fileID: 1637716894}
 --- !u!4 &1260398031
 Transform:
   m_ObjectHideFlags: 0
