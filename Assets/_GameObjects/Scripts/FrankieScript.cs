@@ -32,7 +32,8 @@ public class FrankieScript : MonoBehaviour {
     }
     private void OnCollisionEnter(Collision collision) {
         if (collision.gameObject.CompareTag("Limite") == false) {
-            gestorJuego.GetComponent<GestorJuego>().FinalizarPartida();
+            gestorJuego.GetComponent<GestorJuego>().SetJugando(false);
+            gestorJuego.GetComponent<GestorJuego>().MostrarMenu();
             GameObject sangre = Instantiate(sangrePrefab);
             sangre.transform.position = this.transform.position;
             Destroy(this.gameObject);

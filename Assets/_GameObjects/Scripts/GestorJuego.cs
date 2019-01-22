@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class GestorJuego : MonoBehaviour {
     [SerializeField] Text textoPuntuacion;
+    [SerializeField] GameObject panelMenu;
     private int puntos = 0;
     private bool jugando;
 
@@ -38,14 +39,13 @@ public class GestorJuego : MonoBehaviour {
         return jugando;
     }
 
-    public void FinalizarPartida() {
-        jugando = false;
-        Invoke("RecargarEscena", 2f);
+    public void SetJugando(bool _jugando) {
+        this.jugando = _jugando;
     }
 
-    private void RecargarEscena() {
-        SceneManager.LoadScene(0);
+    public void MostrarMenu() {
+        panelMenu.SetActive(true);
     }
-
+ 
 
 }
